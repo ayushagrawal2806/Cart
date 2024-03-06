@@ -1,11 +1,13 @@
 import "./card.css";
-import Navbar from "../Navbar/navbar";
+
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import Datas from './data.json'
 import { useState } from "react";
-let Card = () => {
-
-    const [quantity , setQuantity] = useState(4);
+let Card = (props) => {
+    let obj = props;
+    let setQuantity = obj.setQuantity;
+    let quantity = obj.quantity;
+    
     const [Data , setData] = useState([...Datas]);
     const [price , setPrice] = useState(499.99+399.99+699.99+599.99);
     
@@ -28,7 +30,7 @@ let Card = () => {
 
   return (
     <>
-      <Navbar quantity = {quantity}/>
+      
       <div className="cart_box">
         <h1>YOUR BAG</h1>
         <h1 style={empty}>is currently empty</h1>
